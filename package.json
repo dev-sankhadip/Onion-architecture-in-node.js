@@ -1,0 +1,43 @@
+{
+  "name": "repositorypattern",
+  "version": "1.0.0",
+  "description": "Repository Pattern Implementation in Node.JS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev src/server.ts",
+    "build": "tsc && nodemon dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-sankhadip/repository-pattern-in-node.js.git"
+  },
+  "keywords": [
+    "Node.JS",
+    "Typescript",
+    "Repository",
+    "Pattern",
+    "CRUD"
+  ],
+  "author": "Sankhadip Samanta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dev-sankhadip/repository-pattern-in-node.js/issues"
+  },
+  "homepage": "https://github.com/dev-sankhadip/repository-pattern-in-node.js#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mssql": "^6.2.0",
+    "shortid": "^2.2.15"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/morgan": "^1.9.1",
+    "@types/mssql": "^6.0.2",
+    "@types/shortid": "0.0.29",
+    "nodemon": "^2.0.4",
+    "ts-node-dev": "^1.0.0-pre.50",
+    "typescript": "^3.9.6"
+  }
+}
