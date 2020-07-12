@@ -29,12 +29,14 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "mssql": "^6.2.0",
+    "mysql": "^2.18.1",
     "shortid": "^2.2.15"
   },
   "devDependencies": {
     "@types/express": "^4.17.6",
     "@types/morgan": "^1.9.1",
     "@types/mssql": "^6.0.2",
+    "@types/mysql": "^2.15.14",
     "@types/shortid": "0.0.29",
     "nodemon": "^2.0.4",
     "ts-node-dev": "^1.0.0-pre.50",
