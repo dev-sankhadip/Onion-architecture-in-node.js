@@ -1,11 +1,12 @@
 import mysql from 'mysql';
 
 
-const connection = mysql.createPool({
-    host: process.env.HOST,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'onion',
+    port: 3308
 })
 
 export {

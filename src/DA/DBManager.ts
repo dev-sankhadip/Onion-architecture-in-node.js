@@ -1,12 +1,11 @@
 import { IDBManager, MySqlType } from "../types/IDBManager";
 import { connection } from "./DBConnection";
-import { MysqlError } from "mysql";
 
-class DBManager implements IDBManager {
-    
-    ReadData(query: string, paramCollection: (string | number | boolean)[]): Promise<MySqlType> {
+export class DBManager implements IDBManager {
+
+    ReadData(query: string, paramCollection: (string | number | boolean)[] = []): Promise<MySqlType> {
         return new Promise((resolve, reject) => {
-            connection.query('select * from student', paramCollection, (err, result) => {
+            connection.query(query, paramCollection, (err, result) => {
                 if (err) {
                     return reject(err)
                 }
@@ -26,7 +25,7 @@ class DBManager implements IDBManager {
             })
         })
     }
-    
+
     DeleteData(query: string, paramCollection: (string | number | boolean)[]): Promise<MySqlType> {
         return new Promise((resolve, reject) => {
             connection.query('select * from student', paramCollection, (err, result) => {
