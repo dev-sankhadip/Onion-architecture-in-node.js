@@ -13,8 +13,13 @@ export class StudentService {
         }
     }
 
-    public async GetStudet() {
-
+    public async GetStudent(id: string) {
+        try {
+            const data = await this.studentDA.GetStudent(id);
+            return data;
+        } catch (error) {
+            throw error;
+        }
     }
 
     public async CreateStudent() {
