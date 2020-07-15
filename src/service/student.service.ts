@@ -44,7 +44,12 @@ export class StudentService {
         }
     }
 
-    public async DeleteStudent() {
-
+    public async DeleteStudent(id: string) {
+        try {
+            const result = await this.studentDA.DeleteStudent(id);
+            return result;
+        } catch (error) {
+            throw error;
+        }
     }
 }

@@ -28,7 +28,7 @@ export class DBManager implements IDBManager {
 
     DeleteData(query: string, paramCollection: (string | number | boolean)[]): Promise<MySqlType> {
         return new Promise((resolve, reject) => {
-            connection.query('select * from student', paramCollection, (err, result) => {
+            connection.query(query, paramCollection, (err, result) => {
                 if (err) {
                     return reject(err)
                 }

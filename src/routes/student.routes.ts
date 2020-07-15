@@ -47,4 +47,15 @@ export const StudentRouter = (router: Router, service: StudentService): void => 
             res.status(500).send(error);
         }
     })
+
+    router.delete('/:id', async (req: Request, res: Response) => {
+        try {
+            const { id } = req.params;
+            const result = await service.DeleteStudent(id);
+            res.status(200).send(result);
+        }
+        catch (err) {
+            res.status(500).send(err);
+        }
+    })
 }

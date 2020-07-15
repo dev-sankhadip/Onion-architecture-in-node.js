@@ -48,7 +48,13 @@ export class StudentDA extends DBManager {
         }
     }
 
-    public DeleteStudent() {
-
+    public async DeleteStudent(id: string) {
+        const query = "delete from student where id = ?";
+        try {
+            const result = await this.DeleteData(query, [id]);
+            return result;
+        } catch (error) {
+            throw error;
+        }
     }
 }
