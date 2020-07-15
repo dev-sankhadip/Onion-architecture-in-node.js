@@ -8,12 +8,19 @@ export class StudentDA extends DBManager {
             return data;
         }
         catch (err) {
-            console.log(err)
+            throw err;
         }
     }
 
-    public GetStudet() {
-
+    public async GetStudent(id: string) {
+        const query = "select * from student where id  = ?";
+        try {
+            const data = await this.ReadData(query, [id]);
+            return data;
+        }
+        catch (err) {
+            throw err;
+        }
     }
 
     public CreateStudent() {
