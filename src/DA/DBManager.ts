@@ -1,4 +1,4 @@
-import { IDBManager, MySqlType } from "../types/IDBManager";
+import { IDBManager, MySqlType } from "../types/types";
 import { connection } from "./DBConnection";
 
 export class DBManager implements IDBManager {
