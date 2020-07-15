@@ -13,4 +13,15 @@ export const StudentRouter = (router: Router, service: StudentService): void => 
             res.status(500).send({ "err": err })
         }
     })
+
+    router.get('/:id', async (req: Request, res: Response) => {
+        try {
+            const { id } = req.params;
+            const data = await service.GetStudent(id);
+            res.status(200).send(data);
+        }
+        catch (err) {
+            res.status(500).send({ "err": err })
+        }
+    })
 }
