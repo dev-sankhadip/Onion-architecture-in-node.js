@@ -12,7 +12,10 @@ dotenv.config();
 const app = express();
 const router = express.Router();
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use('/', router);
+
 
 StudentRouter(router, new StudentService(new StudentDA()));
 

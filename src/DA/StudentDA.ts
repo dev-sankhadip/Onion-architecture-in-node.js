@@ -1,4 +1,7 @@
 import { DBManager } from "./DBManager";
+import shortid from 'shortid';
+import { IStudent } from "../types/types";
+
 
 export class StudentDA extends DBManager {
     public async GetStudents() {
@@ -23,12 +26,26 @@ export class StudentDA extends DBManager {
         }
     }
 
-    public CreateStudent() {
+    public async CreateStudent(data: IStudent) {
+        const query = "insert into student(id, name, email, age) values(?,?,?,?)";
+        try {
+            const result = await this.InsertOrUpdateData(query, [data.id, data.name, data.email, data.age]);
+            return result;
+        }
+        catch (err) {
 
+        }
     }
 
-    public UpdateStudent() {
-
+    public async UpdateStudent(data: IStudent) {
+        const query = "update student set name=?, email=?, age=? where id = ?";
+        try {
+            const result = await this.InsertOrUpdateData(query, [data.name, data.email, data.age, data.id]);
+            return result;
+        }
+        catch (err) {
+            throw err;
+        }
     }
 
     public DeleteStudent() {

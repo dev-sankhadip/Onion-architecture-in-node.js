@@ -1,4 +1,6 @@
 import { StudentDA } from "../DA";
+import { IStudent } from "../types/types";
+import shortid from "shortid";
 
 export class StudentService {
 
@@ -22,12 +24,24 @@ export class StudentService {
         }
     }
 
-    public async CreateStudent() {
-
+    public async CreateStudent(data: IStudent) {
+        try {
+            const id = shortid.generate();
+            const result = await this.studentDA.CreateStudent({ ...data, id });
+            return result;
+        }
+        catch (err) {
+            throw err;
+        }
     }
 
-    public async UpdateStudent() {
-
+    public async UpdateStudent(data: IStudent) {
+        try {
+            const result = await this.studentDA.UpdateStudent(data);
+            return result;
+        } catch (error) {
+            throw error;
+        }
     }
 
     public async DeleteStudent() {

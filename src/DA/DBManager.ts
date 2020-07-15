@@ -15,9 +15,9 @@ export class DBManager implements IDBManager {
         })
     }
 
-    InsertOrUpdateData(query: string, paramCollection: (string | number | boolean)[]): Promise<MySqlType> {
+    InsertOrUpdateData(query: string, paramCollection: (string | number | boolean | undefined)[]): Promise<MySqlType> {
         return new Promise((resolve, reject) => {
-            connection.query('select * from student', paramCollection, (err, result) => {
+            connection.query(query, paramCollection, (err, result) => {
                 if (err) {
                     return reject(err)
                 }

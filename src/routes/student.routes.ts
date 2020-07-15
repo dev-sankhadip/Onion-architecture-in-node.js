@@ -24,4 +24,27 @@ export const StudentRouter = (router: Router, service: StudentService): void => 
             res.status(500).send({ "err": err })
         }
     })
+
+    router.post('/', async (req: Request, res: Response) => {
+        try {
+            const { name, email, age } = req.body;
+            const result = await service.CreateStudent({ name, email, age });
+            res.status(200).send(result)
+        }
+        catch (err) {
+            console.log(err)
+            res.status(500).send(err);
+        }
+    })
+
+    router.put('/:id', async (req: Request, res: Response) => {
+        try {
+            const { name, email, age } = req.body;
+            const { id } = req.params;
+            const result = await service.UpdateStudent({ name, email, age, id });
+            res.status(200).send(result)
+        } catch (error) {
+            res.status(500).send(error);
+        }
+    })
 }
